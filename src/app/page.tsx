@@ -1,95 +1,97 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { FileText, Sparkles, Download, Eye } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Header */}
+      <header className="border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <FileText className="h-8 w-8 text-blue-600" />
+              <span className="text-2xl font-bold text-gray-900">ResumeAI</span>
+            </div>
+            <Link href="/builder">
+              <Button className="bg-blue-600 hover:bg-blue-700">
+                Create Resume
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </header>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
+            Build Your Perfect Resume with{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              AI
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Create professional, ATS-friendly resumes in minutes. Our AI helps you craft compelling content 
+            while beautiful templates make you stand out.
+          </p>
+          <Link href="/builder">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-6">
+              <Sparkles className="mr-2 h-5 w-5" />
+              Start Building
+            </Button>
+          </Link>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <Card className="p-8 text-center hover:shadow-lg transition-shadow border-0 bg-white/60 backdrop-blur-sm">
+            <div className="bg-blue-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <Sparkles className="h-8 w-8 text-blue-600" />
+            </div>
+            <h3 className="text-xl font-semibold mb-3">AI-Powered Content</h3>
+            <p className="text-gray-600">
+              Generate professional summaries and achievement-focused bullet points with advanced AI.
+            </p>
+          </Card>
+
+          <Card className="p-8 text-center hover:shadow-lg transition-shadow border-0 bg-white/60 backdrop-blur-sm">
+            <div className="bg-indigo-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <Eye className="h-8 w-8 text-indigo-600" />
+            </div>
+            <h3 className="text-xl font-semibold mb-3">Beautiful Templates</h3>
+            <p className="text-gray-600">
+              Choose from professionally designed templates that get you noticed by recruiters.
+            </p>
+          </Card>
+
+          <Card className="p-8 text-center hover:shadow-lg transition-shadow border-0 bg-white/60 backdrop-blur-sm">
+            <div className="bg-green-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <Download className="h-8 w-8 text-green-600" />
+            </div>
+            <h3 className="text-xl font-semibold mb-3">Instant PDF Export</h3>
+            <p className="text-gray-600">
+              Download your resume as a high-quality PDF ready for job applications.
+            </p>
+          </Card>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
+            <h2 className="text-3xl font-bold mb-4">Ready to land your dream job?</h2>
+            <p className="text-xl opacity-90 mb-8">
+              Join thousands of professionals who've upgraded their careers with ResumeAI.
+            </p>
+            <Link href="/builder">
+              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
+                Create My Resume
+              </Button>
+            </Link>
+          </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
